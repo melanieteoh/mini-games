@@ -1,0 +1,120 @@
+import play
+from random import randint
+
+background = play.new_box(color = "black", x = 0, y = 0, width = 1000, height = 1000)
+
+title1 = play.new_text(words = "R", x = -280, y = 250, font = None, font_size = 70, color = "red")
+title2 = play.new_text(words = "O", x = -240, y = 250, font = None, font_size = 70, color = "orange")
+title3 = play.new_text(words = "N", x = -200, y = 250, font = None, font_size = 70, color = "yellow")
+title4 = play.new_text(words = "A", x = -160, y = 250, font = None, font_size = 70, color = "spring green")
+title5 = play.new_text(words = "L", x = -130, y = 250, font = None, font_size = 70, color = "forest green")
+title6 = play.new_text(words = "D", x = -100, y = 250, font = None, font_size = 70, color = "green")
+title7 = play.new_text(words = "'", x = -80, y = 250, font = None, font_size = 70, color = "dark green")
+title8 = play.new_text(words = "S", x = -60, y = 250, font = None, font_size = 70, color = "dark blue")
+title9 = play.new_text(words = "L", x = 0, y = 250, font = None, font_size = 70, color = "Blue")
+title10 = play.new_text(words = "U", x = 30, y = 250, font = None, font_size = 70, color = "royal blue")
+title11 = play.new_text(words = "C", x = 67, y = 250, font = None, font_size = 70, color = "cornflower blue")
+title12 = play.new_text(words = "K", x = 105, y = 250, font = None, font_size = 70, color = "light sky blue")
+title13 = play.new_text(words = "Y", x = 135, y = 250, font = None, font_size = 70, color = "light blue")
+title14 = play.new_text(words = "D", x = 190, y = 250, font = None, font_size = 70, color = "thistle")
+title15 = play.new_text(words = "R", x = 225, y = 250, font = None, font_size = 70, color = "medium purple")
+title16 = play.new_text(words = "A", x = 260, y = 250, font = None, font_size = 70, color = "medium orchid")
+title17 = play.new_text(words = "W", x = 295, y = 250, font = None, font_size = 70, color = "dark violet")
+
+box1 = play.new_box(color = "Lavender blush", x = -200, y = 100, width = 100, height = 200, border_color = "black", border_width = 3)
+box2 = play.new_box(color = "Lavender", x = 0, y = 100, width = 100, height = 200, border_color = "black", border_width = 3)
+box3 = play.new_box(color = "Alice Blue", x = 200, y = 100, width = 100, height = 200, border_color = "black", border_width = 3)
+
+num1 = play.new_text(words = str(0), x = -200, y = 100, font_size = 50, color = "black")
+num2 = play.new_text(words = str(0), x = 0, y = 100, font_size = 50, color = "black")
+num3 = play.new_text(words = str(0), x = 200, y = 100, font_size = 50, color = "black")
+
+start_button = play.new_circle(color = "Lavender", x = 0, y = -200, radius = 70, border_color = "purple", border_width = 5)
+
+start_text = play.new_text(words = "HIT ME", x = 0, y = -200, font = None, font_size = 50, color = "black")
+
+display_box = play.new_box(color = "gold", x = 0, y = -65, width = 700, height = 100, border_color = "black", border_width = 3)
+display_text = play.new_text(words = "  ", x = 0, y = -65, font_size = 50, color = "white")
+
+coins_word = play.new_text(words = "$$$", x = -300, y = -250, font = None, font_size = 60, color = "green")
+coins = play.new_text(words = str(100), x = -200, y = -250, font = None, font_size = 60, color = "green")
+
+@play.when_program_starts
+def start():
+    pass
+
+@play.repeat_forever
+def do():
+    pass
+
+@start_button.when_clicked
+def spin():
+    box1.color = "lavender blush"
+    box2.color = "lavender"
+    box3.color = "alice blue"
+
+    n1 = randint(0, 9)
+    n2 = randint(0,9)
+    n3 = randint(0,9)
+
+    num1.words = str(n1)
+    num2.words = str(n2)
+    num3.words = str(n3)
+
+    new_c = int(coins.words) - 10
+    coins.words = str(new_c)
+
+    if n1 == n2 and n2 == n3:
+        box1.color = "gold"
+        box2.color = "gold"
+        box3.color = "gold"
+
+        display_box.color = "gold"
+        display_text.color = "black"
+
+        background.color = "white"
+
+        if n1 == 1:
+            display_text.words = "kn"
+            new_c = int(coins.words) + 111
+            coins.words = str(new_c)
+        elif n1 == 2:
+            display_text.words = "lkl"
+            new_c = int(coins.words) + 222
+            coins.words = str(new_c)
+        elif n1 == 3:
+            display_text.words = "jn"
+            new_c = int(coins.words) + 333
+            coins.words = str(new_c)
+        elif n1 == 4:
+            display_text.words = "erw"
+            new_c = int(coins.words) + 444
+            coins.words = str(new_c)
+        elif n1 == 5:
+            display_text.words = "yrt"
+            new_c = int(coins.words) + 555
+            coins.words = str(new_c)
+        elif n1 == 6:
+            display_text.words = "4r"
+            new_c = int(coins.words) + 666
+            coins.words = str(new_c)
+        elif n1 == 7:
+            display_text.words = "rt"
+            new_c = int(coins.words) + 10000
+            coins.words = str(new_c)
+        elif n1 == 8: 
+            display_text.words = "5t"
+            new_c = int(coins.words) + 888
+            coins.words = str(new_c)
+        elif n1 == 9: 
+            display_text.words = "BEEPBOOP BEEPBOOP HELLO POLIS"
+            new_c = int(coins.words) + 999
+            coins.words = str(new_c)
+    else:
+        display_text.words = "BAD LUCK INNIT?"
+
+    if int(coins.words) == 0:
+        display_text.words = "QUIT PLAYING YOU'RE LOSING MONEY"
+        play.halt()
+
+play.start_program()
